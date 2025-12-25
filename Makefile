@@ -1,4 +1,5 @@
 dev-init:
+	git pull
 	rm -rf .terraform/terraform.tfstate
 	terraform init -backend-config=./envinonments/dev/state.tfvars
 

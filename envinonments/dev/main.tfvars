@@ -8,7 +8,7 @@ instances = {
   redis = {
     instance_type = "t3.small"
   }
-  robbitmq = {
+  rabbitmq = {
     instance_type = "t3.small"
   }
   mysql = {

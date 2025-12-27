@@ -4,7 +4,7 @@ module "tools" {
   ami            = var.ami
   instance_type  = each.value["instance_type"]
   name           = each.key
-  zone_id        = "Z09952091XFAJVW6ZEAR4"
+  zone_id        = "var.zone_id"
 }
 
 

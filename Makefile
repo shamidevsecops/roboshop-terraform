@@ -7,10 +7,10 @@ dev-plan:
 	terraform plan -var-file=envinonments/dev/main.tfvars
 
 dev-apply: dev-init
-	terraform apply -var-file=envinonments/dev/main.tfvars -auto-approve
+	terraform apply -var-file=envinonments/dev/main.tfvars -auto-approve -var token=${var.token}
 
 dev-destroy: dev-init
-	terraform destroy -var-file=envinonments/dev/main.tfvars -auto-approve
+	terraform destroy -var-file=envinonments/dev/main.tfvars -auto-approve  -var token=${var.token}
 
 prod-init:
 	rm -rf .terraform/terraform.tfstate
@@ -20,10 +20,10 @@ prod-plan:
 	terraform plan -var-file=envinonments/prod/main.tfvars
 
 prod-apply: prod-init
-	terraform apply -var-file=envinonments/prod/main.tfvars -auto-approve
+	terraform apply -var-file=envinonments/prod/main.tfvars -auto-approve -var token=${var.token}
 
 prod-destroy: prod-init
-	terraform destroy -var-file=envinonments/prod/main.tfvars -auto-approve
+	terraform destroy -var-file=envinonments/prod/main.tfvars -auto-approve -var token=${var.token}
 
 tools-infra: ## Tools Infra
 	git pull

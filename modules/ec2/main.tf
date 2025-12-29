@@ -26,9 +26,6 @@ resource "aws_route53_record" "public" {
 }
 
 resource "null_resource" "ansible" {
-  # triggers = {
-  #   always = var.env  == null ? timestamp() : "false"
-  # }
 
   count = var.env == null ? 0 : 1
 

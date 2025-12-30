@@ -32,20 +32,21 @@ resource "null_resource" "ansible" {
   depends_on = [aws_route53_record.record]
   provisioner "remote-exec" {
     connection {
-    #   type     = "ssh"
-    #   user     = "ec2-user"
-    #   password = "DevOps321"
-    #   host     = aws_instance.instance.private_ip
-    # }
       type     = "ssh"
-      user     = data.vault_generic_secret.ssh-creds.data["username"]
-      password = data.vault_generic_secret.ssh-creds.data["password"]
+      user     = "ec2-user"
+      password = "DevOps321"
       host     = aws_instance.instance.private_ip
     }
+    #   type     = "ssh"
+    #   user     = data.vault_generic_secret.ssh-creds.data["username"]
+    #   password = data.vault_generic_secret.ssh-creds.data["password"]
+    #   host     = aws_instance.instance.private_ip
+    # }
 
     inline = [
-      "sudo pip3.11 install ansible hvac",
-      "ansible-pull -i localhost, -U https://github.com/shamidevsecops/roboshop-ansible roboshop.yml -e role_name=${var.name} -e token=${var.token} -e env=${var.env}"
+      "sudo pip3.11 install ansible",
+      "ansible-pull -i localhost, -U https://github.com/shamidevsecops/roboshop-ansible roboshop.yml -e role_name=${var.name}"
+      # -e token=${var.token} -e env=${var.env}
     ]
   }
 }

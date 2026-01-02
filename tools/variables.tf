@@ -5,7 +5,7 @@ variable "zone_id" {
 variable "ami" {
   default = "ami-09c813fb71547fc4f"
 }
-
+variable "token" {}
 variable "tools" {
   default = {
     vault = {

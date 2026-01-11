@@ -5,8 +5,10 @@ variable "env" {
   default = null
 }
 variable "zone_id" {}
-variable "token" {}
 
-variable "disk_size" {
-  default = 20
-}
+
+# variable "token" {}
+#
+# variable "disk_size" {
+#   default = 20
+# }

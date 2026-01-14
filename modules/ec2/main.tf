@@ -26,10 +26,10 @@ resource "null_resource" "ansible" {
       host     = aws_instance.instance.private_ip
     }
 
-    inline = [
-      "sudo pip3.11 install ansible",
-      "ansible-pull -i localhost, -U https://github.com/shamidevsecops/roboshop-ansible roboshop.yml -e role_name=${var.name}"
-    ]
+    # inline = [
+    #   "sudo pip3.11 install ansible",
+    #   "ansible-pull -i localhost, -U https://github.com/shamidevsecops/roboshop-ansible roboshop.yml -e role_name=${var.name}"
+    # ]
   }
 }
 
